@@ -1,58 +1,50 @@
-class hybrid
-{
-public static void main(String[] args){
-Result r=new Result();
-r.getnumber(38);
-r.getmarks(17,20);
-r.display();
-}
- }
-
+import java.util.*;
 class Student{
-int rollno;
-
-void getnumber(int s){
-rollno=s;
+	int rollNo;
+	Scanner sc=new Scanner(System.in);
+	public void getRollNumber(){
+		System.out.println("ENTER STUDENT ROLL NO. :");
+		rollNo=sc.nextInt();
+	}
+	public void showRollNumber(){
+		System.out.println("STUDENT ROLL NO. :"+rollNo);
+	}
 }
-
-void putnumber(){
-System.out.println("Roll no : " +rollno);
-}
-
-}
-
-
 class Test extends Student{
-float test1,test2;
-void getmarks(float a,float b){
-test1=a;
-test2=b;
+	int marks1;
+	int marks2;
+	Scanner sc=new Scanner(System.in);
+	public void getMarks(){
+		System.out.println("ENTER STUDENT MARKS :");
+		marks1=sc.nextInt();
+		marks2=sc.nextInt();
+	}
+	public void showMarks(){
+		System.out.println("STUDENT MARKS :"+marks1+" "+marks2);
+	}
 }
-void putmarks(){
-System.out.println("Marks in test 1: " +test1);
-System.out.println("Marks in test 2: " +test2);
+interface Sports{
+	int score=7;
+	void showScore();
 }
-}
-interface Sports
-{
-float score=6.0f;
-void putw();
-}
-
-
 class Result extends Test implements Sports{
-float total;
-public void putw(){
-System.out.println("Sports marks : "+score);
+	public void showScore(){
+		System.out.println("STUDENT SCORE :"+score);
+	}
+	public void showResult(){
+                int total=marks1 + marks2 + score;
+		System.out.println("STUDENT RESULT IS :"+total);
+	}
 }
-void display(){
-total=test1+test2+score;
-putnumber();
-putmarks();
-putw();
-
-
-System.out.println("Total marks: "+total);
+class Hybrid{
+	public static void main(String args[]){
+		Scanner sc=new Scanner(System.in);
+		Result r=new Result();
+		r.getRollNumber();
+		r.getMarks();
+		r.showRollNumber();
+		r.showMarks();
+		r.showScore();
+		r.showResult();
+	}
 }
-}
-
